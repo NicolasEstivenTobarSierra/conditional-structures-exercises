@@ -1,15 +1,28 @@
-# Solicitar al usuario que ingrese un carácter
-caracter = input("Ingrese carácter: ")
+# Solicitar al usuario que ingrese el primer operando
+operando1 = float(input("Operando: "))
+# Solicitar al usuario que ingrese el operador
+operador = input("Operador: ")
+# Solicitar al usuario que ingrese el segundo operando
+operando2 = float(input("Operando: "))
 
-# Verificar si es un número
-if caracter.isdigit():
-    print("Es número.")
-# Verificar si es una letra
-elif caracter.isalpha():
-    if caracter.isupper():
-        print("Es letra mayúscula.")
+# Realizar la operación según el operador ingresado
+if operador == '+':
+    resultado = operando1 + operando2
+    print(f"{operando1} + {operando2} = {resultado}")
+elif operador == '-':
+    resultado = operando1 - operando2
+    print(f"{operando1} - {operando2} = {resultado}")
+elif operador == '*':
+    resultado = operando1 * operando2
+    print(f"{operando1} * {operando2} = {resultado}")
+elif operador == '/':
+    if operando2 != 0:
+        resultado = operando1 / operando2
+        print(f"{operando1} / {operando2} = {resultado}")
     else:
-        print("Es letra minúscula.")
-# Si no es ni letra ni número
+        print("Error: División por cero.")
+elif operador == '**':
+    resultado = operando1 ** operando2
+    print(f"{operando1} ** {operando2} = {resultado}")
 else:
-    print("No es letra ni número.")
+    print("Error: Operador no válido.")
