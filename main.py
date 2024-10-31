@@ -1,16 +1,23 @@
-# Solicitar al usuario que ingrese los tres lados del triángulo
-a = float(input("Ingrese a: "))
-b = float(input("Ingrese b: "))
-c = float(input("Ingrese c: "))
+# Solicitar al usuario que ingrese su estatura, peso y edad
+estatura = float(input("Ingrese su estatura en metros: "))
+peso = float(input("Ingrese su peso en kilogramos: "))
+edad = int(input("Ingrese su edad: "))
 
-# Verificar si los lados forman un triángulo válido
-if a + b > c and a + c > b and b + c > a:
-    # Determinar el tipo de triángulo
-    if a == b == c:
-        print("El triángulo es equilátero.")
-    elif a == b or a == c or b == c:
-        print("El triángulo es isósceles.")
+# Calcular el índice de masa corporal (IMC)
+imc = peso / (estatura ** 2)
+
+# Determinar la condición de riesgo
+if edad < 45:
+    if imc < 22.0:
+        riesgo = "bajo"
     else:
-        print("El triángulo es escaleno.")
+        riesgo = "medio"
 else:
-    print("No es un triángulo válido.")
+    if imc < 22.0:
+        riesgo = "medio"
+    else:
+        riesgo = "alto"
+
+# Mostrar el resultado
+print(f"Su IMC es: {imc:.2f}")
+print(f"Condición de riesgo: {riesgo}")
