@@ -1,23 +1,24 @@
-from time import localtime
+# Función para determinar el estado del set
+def estado_set(juegos_a, juegos_b):
+    # Verificar condiciones de resultado inválido
+    if (juegos_a >= 7 and juegos_b >= 6) or (juegos_b >= 7 and juegos_a >= 6) or (juegos_a > 6 and juegos_b > 6 and abs(juegos_a - juegos_b) < 2):
+        return "Invalido"
 
-# Obtener la fecha actual
-t = localtime()
-dia_actual = t.tm_mday
-mes_actual = t.tm_mon
-anno_actual = t.tm_year
+    # Verificar si A ha ganado
+    if juegos_a >= 6 and juegos_a - juegos_b >= 2:
+        return "Gano A"
+    
+    # Verificar si B ha ganado
+    if juegos_b >= 6 and juegos_b - juegos_a >= 2:
+        return "Gano B"
+    
+    # Verificar si el set aún no ha terminado
+    return "Aun no termina"
 
-# Solicitar la fecha de nacimiento del usuario
-print("Ingrese su fecha de nacimiento.")
-dia_nacimiento = int(input("Día: "))
-mes_nacimiento = int(input("Mes: "))
-anno_nacimiento = int(input("Año: "))
-
-# Calcular la edad
-edad = anno_actual - anno_nacimiento
-
-# Ajustar la edad si el cumpleaños no ha ocurrido este año
-if (mes_nacimiento > mes_actual) or (mes_nacimiento == mes_actual and dia_nacimiento > dia_actual):
-    edad -= 1
-
-# Mostrar la edad
-print(f"Usted tiene {edad} años.")
+# Solicitar los juegos ganados por A y B
+while True:
+    juegos_a = int(input("Juegos ganados por A: "))
+    juegos_b = int(input("Juegos ganados por B: "))
+    
+    resultado = estado_set(juegos_a, juegos_b)
+    print(resultado)
