@@ -1,17 +1,9 @@
-# Solicitar al usuario que ingrese dos palabras
-palabra1 = input("Palabra 1: ")
-palabra2 = input("Palabra 2: ")
+# Solicitar al usuario que ingrese dos números
+numero1 = int(input("Ingrese número: "))
+numero2 = int(input("Ingrese número: "))
 
-# Calcular la longitud de cada palabra
-longitud1 = len(palabra1)
-longitud2 = len(palabra2)
-
-# Comparar las longitudes
-if longitud1 > longitud2:
-    diferencia = longitud1 - longitud2
-    print(f"La palabra {palabra1} tiene {diferencia} letras más que {palabra2}.")
-elif longitud2 > longitud1:
-    diferencia = longitud2 - longitud1
-    print(f"La palabra {palabra2} tiene {diferencia} letras más que {palabra1}.")
+# Ordenar y mostrar los números
+if numero1 < numero2:
+    print(numero1, numero2)
 else:
-    print("Las dos palabras tienen el mismo largo.")
+    print(numero2, numero1)
