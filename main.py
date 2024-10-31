@@ -1,8 +1,16 @@
-# Solicitar al usuario que ingrese un número entero
-numero = int(input("Ingrese un número: "))
+# Solicitar al usuario que ingrese un año
+año = int(input("Ingrese un año: "))
 
-# Verificar si el número es par o impar
-if numero % 2 == 0:
-    print("Su número es par")
+# Determinar si el año es bisiesto
+if año < 1582:
+    # Regla del calendario juliano
+    if año % 4 == 0:
+        print(f"{año} es bisiesto")
+    else:
+        print(f"{año} no es bisiesto")
 else:
-    print("Su número es impar")
+    # Regla del calendario gregoriano
+    if (año % 4 == 0 and año % 100 != 0) or (año % 400 == 0):
+        print(f"{año} es bisiesto")
+    else:
+        print(f"{año} no es bisiesto")
