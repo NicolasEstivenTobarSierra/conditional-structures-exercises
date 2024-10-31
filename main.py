@@ -1,16 +1,17 @@
-# Solicitar al usuario que ingrese un año
-año = int(input("Ingrese un año: "))
+# Solicitar al usuario que ingrese el dividendo y el divisor
+dividendo = int(input("Dividendo: "))
+divisor = int(input("Divisor: "))
 
-# Determinar si el año es bisiesto
-if año < 1582:
-    # Regla del calendario juliano
-    if año % 4 == 0:
-        print(f"{año} es bisiesto")
-    else:
-        print(f"{año} no es bisiesto")
+# Realizar la división
+cociente = dividendo // divisor
+resto = dividendo % divisor
+
+# Determinar si la división es exacta
+if resto == 0:
+    print("La división es exacta.")
+    print(f"Cociente: {cociente}")
+    print(f"Resto: {resto}")
 else:
-    # Regla del calendario gregoriano
-    if (año % 4 == 0 and año % 100 != 0) or (año % 400 == 0):
-        print(f"{año} es bisiesto")
-    else:
-        print(f"{año} no es bisiesto")
+    print("La división no es exacta.")
+    print(f"Cociente: {cociente}")
+    print(f"Resto: {resto}")
